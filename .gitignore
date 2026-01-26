@@ -1,0 +1,21 @@
+.vscode/
+*.code-workspace
+
+*.py[oc]
+__pycache__/
+.venv
+
+node_modules/
+dist/
+dev-dist/
+
+.DS_Store
+*.log
+.env
+.env.local
+__*/
+z*
+
+# Project specific
+uploads/
+data/

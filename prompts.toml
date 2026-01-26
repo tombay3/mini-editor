@@ -1,0 +1,89 @@
+
+[radio.transcript]
+template = """
+You are transcribing a radio broadcast audio file.
+
+**INSTRUCTIONS:**
+1. This audio contains Cantonese talk shows with occasional English code-switching. Duration is about 30 minutes. Do not stop early.
+2. Include timestamps for major segments. Identify music segments longer than 10 seconds, mark them with [MUSIC PLAYING: MM:SS - MM:SS]
+3. Distinguish different segments:
+   - Spoken words (transcribe in the original language)
+   - Singing (DO NOT transcribe lyrics, mark as music)
+   - Instrumental music (mark as music)
+4. Give your top 2 'tone' and 'vibe' hashtags (in Chinese)
+
+**OUTPUT FORMAT**:
+[MM:SS] ...
+[MUSIC PLAYING: MM:SS - MM:SS]
+[MM:SS] ...
+
+[TONE] tone of the spoken content
+[VIBE] the mood of music content
+"""
+
+[radio.summary]
+template = """
+You are an editorial expert for a Hong Kong radio station. 
+Your task is to read the following transcript and generate metadata for a radio show.
+Interpret this text using knowledge of local politics, Cantopop history, and vernacular slang.
+
+Episode Title: {episode_title}
+TRANSCRIPT:
+{transcript}
+---
+
+**INSTRUCTIONS:**
+1. Classify with the top 2 relevant IAB Tier 2 Category (in Chinese)
+2. Extract the top 2 high-value keywords (tags) for search indexing
+3. Write a concise summary ({word_range} words in {paragraphs}):
+   - Capture the main topics and key points discussed
+   - Be written in the same language and tone as the content
+   - Be professional and suitable for an editorial description
+   - Highlight any notable guests, announcements and stories
+---
+
+**OUTPUT FORMAT**:
+Format as a valid JSON object:
+{{
+  "categories": [
+    "Category 1",
+    "Category 2"
+  ],
+  "tags": [
+    "Keyword 1",
+    "Keyword 2"
+  ],
+  "summary": "..."
+}}
+"""
+
+[p1]
+template = """
+You are transcribing a radio broadcast audio file.
+
+**INSTRUCTIONS:**
+1. This audio contains Cantonese talk shows with occasional English code-switching. Duration is about 30 minutes. Do not stop early.
+2. Include timestamps for major segments. When music plays for more than 10 seconds, insert a marker like: [MUSIC PLAYING: MM:SS - MM:SS]
+3. Distinguish between:
+   - Spoken words (transcribe in the original language)
+   - Singing (DO NOT transcribe lyrics, mark as music)
+   - Instrumental music (mark as music)
+4. Write a concise summary (30-50 words in 1 paragraph) in Chinese
+   - Capture the main topics and key points discussed
+   - Be professional and suitable for an episode description
+   - Highlight any notable guests, announcements and stories
+
+**OUTPUT FORMAT**:
+Format as a valid JSON object:
+{{
+  "transcript": [
+      {{ "timestamp": "MM:SS", "content": "..." }},
+      {{ "timestamp": "MM:SS", "content": "[MUSIC PLAYING: MM:SS - MM:SS]" }}
+      {{ "timestamp": "MM:SS", "content": "..." }},
+  ],
+  "summary": "..."
+}}
+"""
+
+[settings]
+category_blacklist = ["music", "音樂"]
