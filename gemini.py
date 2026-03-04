@@ -24,7 +24,7 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 # Model to use for all AI operations
-MODEL_NAME = "gemini-3-pro-preview"
+MODEL_NAME = "gemini-pro-latest"
 # MODEL_NAME = "gemini-2.5-pro"
 
 

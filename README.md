@@ -48,7 +48,7 @@ A "fan-made" AI-Powered LLM-based editorial tool to process and review radio sho
 ### Technical Stack
 
 - **Frontend**: Streamlit (Python)
-- **AI Engine**: Google Gemini (Multimodal) GenAI SDK (`gemini-3-pro-preview`)
+- **AI Engine**: Google Gemini (Multimodal) GenAI SDK (`gemini-pro-latest`)
 - **Datastore**: JSON file (`data/episodes.json`)
 - **Audio Handling**: `mutagen` (metadata), Gemini File API
 - **Prompt Engineering**: Externalized `prompts.toml`
@@ -62,7 +62,7 @@ A "fan-made" AI-Powered LLM-based editorial tool to process and review radio sho
 - Ensure `GEMINI_API_KEY` is set correctly and has permissions for the Gemini File API.
 
 **3. API Rate Limits (429 Errors)**
-- Check your Google Cloud project quotas for the model you’re using (e.g., `gemini-3-pro-preview`).
+- Check your Google Cloud project quotas for the model you’re using (e.g., `gemini-pro-latest`).
 
 ## Screenshots
 

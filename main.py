@@ -94,7 +94,7 @@ def transcribe_audio(file_path, prompt_path):
     print("\nGenerating transcript with Gemini...")
     try:
         response = client.models.generate_content(
-            model="gemini-3-pro-preview",
+            model="gemini-pro-latest",
             contents=[file_ref, prompt],
             config=types.GenerateContentConfig(response_mime_type="application/json"),
         )
